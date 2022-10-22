@@ -1,0 +1,72 @@
+
+
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/css_view.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css_topnav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>View, Page</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static 'JavaScript/js_Log.js' %}"></script>
+</head>
+<body>
+    
+  <div class="topnav">
+    <a  href="{% url 'Home' %}">Home</a>
+    <a  href="{% url 'add' %}">Add Student</a>
+    <a  class="active" href="{% url 'view' %}">View All Students</a>
+    <a  href="{% url 'search' %}">Search</a>
+    <div class="topnav_rigth">
+      <a class="Aout" href="{% url 'logout' %}">Logout</a>
+    </div>
+  
+</div>
+
+
+  <h1 style="padding-left:45%" >Student details</h1>   
+  <table cellpadding="15pxl" id="myTable">
+    
+
+
+      <tr>
+        <th style= "width:10%;">Id</th>
+        <th style= "width:15%;">Name</th>
+        <th style= "width:10%;">Date of birth </th>
+        <th>GPA</th>
+        <th>Gender</th>
+        <th>Level</th>
+        <th>Status</th> 
+        <th>Department</th>
+        <th style= "width:15%;">Email</th>
+        <th>Mobile number</th>
+        <th>Update</th>    
+        <th>Delete</th> 
+    </tr>   
+       {% for a in stu %}
+       <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.Name}}</td>
+        <td>{{a.Date_of_birth}}</td>
+        <td>{{a.GPA}}</td>
+        <td>{{a.Gender}}</td>
+        <td>{{a.level}}</td>
+        <td>{{a.status}}</td>        
+        <td>{{a.Department}}</td>
+        <td>{{a.Email}}</td>
+        <td>{{a.MobileNumber}}</td>
+
+        <td> <button type="button"  class="btn" ><a class="Aup" href="update/{{a.id}}">Update this student</a></button></td>
+        {% csrf_token %}
+        <td> <button class="btn" type="button" onclick = "DeleteStudentView({{a.id}},this)"> Delete this student</button></td>
+      </tr> 
+       {% endfor %}
+        
+</table>
+
+</body>
+</html>
+
+{% endblock content %}
+

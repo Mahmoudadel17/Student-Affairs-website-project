@@ -1,0 +1,20 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/css_first.css' %}">
+        <title>first, Page</title>
+    </head>
+    <body>
+        <br><br>
+        <a href="#" class="button button1">Human Resources</a>
+        <a href="{% url 'page1' %}" class="button button2">Student Affairs</a>
+        <a href="#" class="button button3">Higher Studies</a>
+        <a href="#" class="button button4">Laboratory Tracking</a>
+        
+    </body>
+</html>
+
+{% endblock content %}

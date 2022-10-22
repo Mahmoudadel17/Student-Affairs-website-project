@@ -1,0 +1,126 @@
+
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="description" content="add your credintials">
+    <link rel="stylesheet" href="{% static 'css/css_add.css' %}">
+    <link rel="stylesheet" href="{% static 'css/css_topnav.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Add, page</title>
+    <meta charset="UTF-8">
+    <script src="{% static 'JavaScript/js_Log.js' %}"></script>
+  </head>
+ 
+  <body>
+
+    <div class="topnav">
+      <a href="{% url 'Home' %}">Home</a>
+      <a class="active" href="{% url 'add' %}">Add Student</a>
+      <a  href="{% url 'view' %}">View All Students</a>
+      <a  href="{% url 'search' %}">Search</a>
+      <div class="topnav_rigth">
+        <a class="Aout" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+
+
+    <section>
+      <div class="title">
+        <h1>add your credentials!</h1>
+      </div>    
+      
+      <div class="all">
+        <div class="form" >
+          <form action="{% url 'studentAdd' %}" id="FORM" method="POST" onsubmit="return Valid()" >    
+            {% if messages %}
+                {% for msg in messages  %}
+                <div class="errorMsg">
+                  <p id="length" class="invalid"><b>{{msg}}</b></p>
+                </div>            
+                {% endfor %}
+                  {% endif %}    
+            {% csrf_token %}
+            <div class="input">
+              <div>
+                <label for="Username">Username</label>
+                <input type="text"  id="username" name="username" required placeholder="your name">
+              </div>
+            
+              <div>
+                <label for="ID">ID</label>
+                <input type="number"  id="id" name="id" required placeholder="your ID">
+              </div>
+                        
+              <div>
+                <label for="Date_of_birth">Date of birth</label>
+                <input type="Date"  name="date_of_birth" required placeholder="your Date of birth ">
+              </div>
+              <div>
+                <label for="Department">Department</label> 
+                <select name="department"  id="department"> 
+                  <option value="General">General </option>
+                  <option value="CS">CS</option>
+                  <option value="IT">IT</option>
+                  <option value="IS">IS</option>
+                  <option value="AI">AI</option>
+                  <option value="DS">DS</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="email">Email</label>
+                <input type="email"  id="email" name="email" required placeholder="your email">
+              </div>
+              
+              <div>
+                <label for="mobile number">Mobile number</label>
+                <input type="phone2numeric" id="NUM"  name="mobile_number" required placeholder="your mobile">
+              </div>
+
+              <div>
+                <label for="GPA">GPA</label>
+                <input  id="gpa" name="gpa" type="number" id="GPA" min="0" max="4" step="0.1" required placeholder="your GPA">
+              </div>
+
+              <div>
+                <label for="level">Level</label>
+                <select  name="level"  id="level"> 
+                  <option value="1">Level 1</option>
+                  <option value="2">Level 2</option>
+                  <option value="3">Level 3</option>
+                  <option value="4">Level 4</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="gender">Gender</label>
+                <select  name="gender"> 
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="status">Status</label>
+                <select  name="status"  id="status"> 
+                  <option value="Active">active</option>
+                  <option value="InActive">inactive</option>
+                </select>
+              </div>
+
+            </div>         
+            <div class="add">
+              <button type="submit" id="ADDD"> <h1>Add</h1></button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+
+{% block content %}
+
+{% load static %} 
+<!DOCTYPE html>
+<html>
+        <head>
+        <title>Student Affairs</title>
+        <link rel="stylesheet" href="{% static 'css/css_page1.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="{% static 'JavaScript/js_Log.js' %}"></script>
+        </head>
+    <body>
+
+
+        <div class="login" >
+        <h2 style="padding-left:250px" >Login Form</h2>
+
+       
+        <form action=" {% url 'Home2' %} "  method="POST" name="myform" onsubmit="return Valid()" >
+          {% csrf_token %}
+          <div class="imgcontainer">
+            <img src="{% static 'img/istockphoto-1300845620-612x612.jpg' %}" alt="Avatar" class="avatar">
+          </div>
+
+          <div class="container">
+            <label for="uname"  style="color:rgb(237, 237, 243);"><b>Username</b> </label>
+            <input type="text" placeholder="Enter Username" style="background-color:#f3f3fcc9" name="username" id="username" required>
+
+            <label for="psw" style="color:rgb(237, 237, 243);"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" style="background-color:#f3f3fcc9"required>
+
+
+            <button type="submit" >Login</button>
+            
+
+        </form>
+
+        </div>
+
+    </body>
+</html>
+
+
+
+{% endblock content %}

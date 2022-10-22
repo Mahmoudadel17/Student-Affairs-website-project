@@ -1,0 +1,74 @@
+body {
+  background-image: url('../img/Cairo_University_after_sunset.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.login{
+padding: 5% 30% ;
+}
+.formCenter {
+margin: auto;
+position:absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+}
+.formCenter.formChange {
+min-width: 300px;
+max-width: 500px;
+padding: 50px;
+}
+#loginForm .input-group {
+margin: 20px 0;
+}
+@media (max-width: 70%) {
+.formCenter.formChange {
+width: 100%;
+}
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #5c6694;}
+
+input[type=text], input[type=password] {
+width: 100%;
+padding: 10px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid rgb(102, 95, 95);
+box-sizing: border-box;
+}
+
+button {
+background-color: #04AA6D;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+button:hover {
+opacity: 0.8;
+}
+input:hover{
+  opacity: 0.8;
+
+}
+
+.imgcontainer {
+text-align: center;
+margin: 24px 0 12px 0;
+}
+
+img.avatar {
+width: 40%;
+border-radius: 50%;
+}
+
+.container {
+padding: 20px;
+}
+

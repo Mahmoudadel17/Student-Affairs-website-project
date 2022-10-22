@@ -1,0 +1,125 @@
+
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UFT-8"/>
+        <meta name="description" content="Update student information">
+        <title>Update, page</title>
+        <link rel="stylesheet" href="{% static 'css/css_topnav.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/css_add.css' %}">
+
+        <script src="{% static 'JavaScript/js_Log.js' %}"></script>
+      </head>
+     
+  <body>
+
+  
+    <div class="topnav">
+      <a  href="{% url 'Home' %}">Home</a>
+      <a  href="{% url 'add' %}">Add Student</a>
+      <a class="active" href="{% url 'update' %}">Update Student</a>
+      <a  href="{% url 'view' %}">View All Students</a>
+      <a  href="{% url 'search' %}">Search</a>
+      <div class="topnav_rigth">
+        <a class="Aout" href="{% url 'logout' %}">Logout</a>
+      </div>
+    
+  </div>
+    <div class="all">
+      <div class="form" >
+        <form action="updaterow/{{mystudent.id}}" id="FORM" method="POST">
+          {% csrf_token %}
+          <div class="input">
+            <div>
+              <label for="Username">Full Name</label>
+              <input type="text" name="username" value="{{mystudent.Name}}" required placeholder="your name">
+            </div>
+          
+            <div>
+              <label for="id">ID</label>
+              <input type="text" value=" {{mystudent.id}}" class="left field" readonly>
+            
+            </div>
+          
+            <div>
+              {% if mystudent.level == '3' %}
+              <label for="Department">Department</label>
+              <select name="Department" id="Department">
+                <option value="{{mystudent.Department}}">{{mystudent.Department}}</option>
+                {% if  mystudent.Department != 'CS'%}
+                <option value="CS">CS</option>{% endif %}
+                {% if  mystudent.Department != 'IT'%}
+                <option value="IT">IT</option>{% endif %}
+                {% if  mystudent.Department != 'IS'%}
+                <option value="IS">IS</option>{% endif %}
+                {% if  mystudent.Department != 'AI'%}
+                <option value="AI">AI</option>{% endif %}
+                {% if  mystudent.Department != 'DS'%}
+                <option value="DS">DS</option>{% endif %}
+                </select>
+              {% else %}
+              <label for="Department">Department</label>
+              <input type="text" name="Department"  value="{{mystudent.Department}}" class="left field" readonly>
+              {% endif %}
+             
+              
+    
+            </div>
+            
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="email"  value="{{mystudent.Email}}" required placeholder="your email">
+            </div>
+            
+            <div>
+              <label for="mobile number">Mobile number</label>
+              <input type="number" name="mobile_number"  value="{{mystudent.MobileNumber}}" id="NUM" required placeholder="your mobile">
+            </div>
+
+            <div>
+              <label for="GPA">GPA</label>
+              <input  name="gpa" type="number" value="{{mystudent.GPA}}" id="GPA" min="0" max="4" step="0.1" required placeholder="your GPA">
+            </div>
+
+            <div>
+            <label for="status">Status</label>
+              <select name="status"> 
+                <option value="{{mystudent.status}}">{{mystudent.status}}</option>
+                {% if mystudent.status != 'Active' %}<option value="Active">Active</option>{% endif %}
+                {% if mystudent.status != 'InActive' %}<option value="InActive">InActive</option>{% endif %}
+              </select>
+
+            </div>
+
+            <div>
+              <label for="level">Level</label>
+              <select name="level"> 
+                <option value="{{mystudent.level}}"> Level {{mystudent.level}}</option>
+                {% if mystudent.level != '1' %}<option value="1">Level 1</option>{% endif %}
+                {% if mystudent.level != '2' %}<option value="2">Level 2</option>{% endif %}
+                {% if mystudent.level != '3' %}<option value="3">Level 3</option>{% endif %}
+                {% if mystudent.level != '4' %}<option value="4">Level 4</option>{% endif %}
+                
+              </select>
+
+            </div>
+          </div>   
+          
+
+          </div>         
+          <div class="add">
+            <button type="submit" id="ADDD"> <h1>Save</h1></button>
+          </div>
+        </form type="submit" value="Submit">
+        
+      </div>
+    </div>
+  
+
+</html>
+
+{% endblock content %}

@@ -1,0 +1,86 @@
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'css/css_Search.css'%}">
+  <link rel="stylesheet" href="{% static 'css/css_topnav.css' %}">
+ 
+    <title>Search, Page</title>
+
+
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{% static 'JavaScript/js_Log.js' %}"></script>
+
+
+<body>
+  
+    <div class="topnav">
+      <a  href="{% url 'Home' %}">Home</a>
+      <a  href="{% url 'add' %}">Add Student</a>
+      <a  href="{% url 'view' %}">View All Students</a>
+      <a class="active" href="{% url 'search' %}">Search</a>
+      <div class="topnav_rigth">
+        <a class="Aout" href="{% url 'logout' %}">Logout</a>
+      </div>
+    
+  </div>
+  
+  
+  <h1 style="padding-left:45%" >Student details</h1>
+
+  <input type="number" id="myInput" onkeyup="myFunction()" placeholder="Search by IDs">
+  
+  
+  
+  <table  id="myTable" >
+      <tr>
+        <th><h2>ID</h2></th>
+        <th><h2>Name</h2></th>
+        <th><h2>Date of birth</h2></th>
+        <th><h2>Gender</h2></th>
+        <th><h2 >Level</h2></th>  
+        <th><h2>Department</h2></th>
+        <th><h2>Email</h2></th>
+        <th><h2>Mobile number</h2></th>
+        <th><h2>Update</h2></th> 
+        <th><h2>Delete</h2></th>
+        
+       
+      </tr>
+      {% for a in stu %}
+      <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.Name}}</td>
+        <td>{{a.Date_of_birth}}</td>
+        <td>{{a.Gender}}</td>
+        <td>{{a.level}}</td>
+        <td>{{a.Department}}</td>
+        <td>{{a.Email}}</td>
+        <td>{{a.MobileNumber}}</td>
+        <td> <button type="button"  class="btn" ><a class="Aup" href="update/{{a.id}}">Update this student</a></button></td>
+        {% csrf_token %}
+        <td> <button type="button"  onclick = "DeleteStudentSearch({{a.id}},this)"> Delete this student</button></td>
+
+      </tr>
+      {% endfor %}
+
+        
+      
+     
+    </table>
+      
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+{% endblock content %}

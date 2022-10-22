@@ -1,0 +1,40 @@
+
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home, Page</title>
+    <link rel="stylesheet" href="{% static 'css/css_home.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css_topnav.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      </head>
+      <body>
+
+        <div class="topnav">
+          <a class="active" href="{% url 'Home' %}">Home</a>
+          <a  href="{% url 'add' %}">Add Student</a>
+          <a  href="{% url 'view' %}">View All Students</a>
+          <a  href="{% url 'search' %}">Search</a>
+          <div class="topnav_rigth">
+          <a class="Aout" href="{% url 'logout' %}">Logout</a>
+        </div>
+      </div>
+
+     <img src="{% static '/img/download.jpg' %}" alt="Logo Faculty of computers and artificial intelligence Cairo University" >
+
+      <img src="{% static '/img/download.png' %}" alt="Logo cairo University"
+      style="position: relative;
+      top: 50%;
+      left: 68%; width: 11%;">
+      <div class="header">
+        <h1 >welcome to...</h1>
+        <h2> Students Affairs's Faculty of computers and artificial intelligence Cairo University</h2>
+      </div>
+     
+      </body>
+      </html>
+
+{% endblock content %}

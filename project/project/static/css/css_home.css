@@ -1,0 +1,20 @@
+.header h1{
+    text-align: center;
+}
+.header h2{
+    padding-left: 100px;
+
+}
+
+.header{
+    color: #313133;
+    text-transform: uppercase;
+    
+}
+.header:hover{
+    color: #000000;
+}
+
+body{
+    background-color:white;
+}
