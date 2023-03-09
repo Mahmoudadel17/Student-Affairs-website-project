@@ -3,7 +3,8 @@ all files in repositorie are was in enveronment of project.
 You will find the project details in "IS231-Web technology project- Phase1, IS231_ Web technology project-Phase2.pdf and IS231-Web technology project- Phase3(2).pdf"
 
 #Overview
-                                     Required minimum functionalities:
+
+                                                  Required minimum functionalities:
 1. User add a new student to the system. Student information includes id, name,
 date of birth, GPA, gender, level, status=”active”, “inactive”, department, email,
 mobile number.
